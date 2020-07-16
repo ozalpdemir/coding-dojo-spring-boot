@@ -1,0 +1,19 @@
+# Spring settings
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  # Datasource settings
+  datasource:
+    platform: org.hibernate.dialect.H2Dialect
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    schema: classpath:/data/schema.sql
+    continue-on-error: false
+
+# Weather api settings
+weather:
+  api:
+    url: 'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appid}'
+    token: '7238ca79418ea069c9b49fc80f5c5de3'

@@ -1,1 +1,60 @@
+# Spring settings
+spring:
+  profiles:
+    active: 'dev'
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: none
 
+  # Datasource settings
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/weather
+    username: weather_user
+    password: '&6291By3cfgN120dRieV'
+    driverClassName: org.postgresql.Driver
+    schema: classpath:/data/schema.sql
+    continue-on-error: false
+
+# Weather api settings
+weather:
+  api:
+    url: 'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appid}'
+    token: '7238ca79418ea069c9b49fc80f5c5de3'
+
+---
+spring:
+  profiles: prod
+
+  # Datasource settings
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/weather
+    username: weather_user
+    password: '&6291By3cfgN120dRieV'
+    driverClassName: org.postgresql.Driver
+    schema: classpath:/data/schema.sql
+    continue-on-error: false
+
+# Disable server error whitelabel pages
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+# Logging settings
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+  file: /logs/application-prod.log
+  level:
+    root: info
+    com.assignment.spring: error
+
+# Weather api settings
+weather:
+  api:
+    url: 'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appid}'
+    token: '7238ca79418ea069c9b49fc80f5c5de3'

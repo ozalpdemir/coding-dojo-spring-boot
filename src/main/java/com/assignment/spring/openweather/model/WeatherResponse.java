@@ -1,9 +1,10 @@
 
-package com.assignment.spring.api;
+package com.assignment.spring.openweather.model;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,20 +13,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "coord",
-    "weather",
-    "base",
-    "main",
-    "visibility",
-    "wind",
-    "clouds",
-    "dt",
-    "sys",
-    "id",
-    "name",
-    "cod"
-})
+@JsonPropertyOrder({ "coord", "weather", "base", "main", "visibility", "wind", "clouds", "dt", "sys", "id", "name",
+        "cod" })
 public class WeatherResponse {
 
     @JsonProperty("coord")
